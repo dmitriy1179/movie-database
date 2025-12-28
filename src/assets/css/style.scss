@@ -14,16 +14,109 @@ body {
 #root {
   width: 100%;
   min-height: 100%;
-}
-
-.container__mod {
-  height: calc(100% - 1.5rem);
   display: flex;
   flex-direction: column;
+}
+
+.wrapper {
+  height: calc(100% - 150px);
+  margin-top: 56px;
+}
+
+.gradient {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.6), rgba(224, 224, 224, 0.6));
+}
+
+.placeholder-error::placeholder {
+  color: #dc3545;
+  opacity: 1;
+}
+
+.btn-reset {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 3;
 }
 
 .list {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  padding: 0;
+}
+
+.item__image {
+  height: unset;
+}
+
+.hero {
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.hero--mod {
+  min-height: 300px;
+  height: calc(100vh / 2.5);
+  background-attachment: unset;
+}
+
+.hero__img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.score {
+  margin-top: -44px;
+}
+
+.biography {
+  display: -webkit-box;
+  -webkit-line-clamp: 12;
+  line-clamp: 12;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.footer {
+  height: 94px;
+}
+
+.pagination__responsive {
+  --bs-pagination-padding-x: 0.5rem;
+  --bs-pagination-padding-y: 0.25rem;
+  --bs-pagination-font-size: 0.875rem;
+  --bs-pagination-border-radius: var(--bs-border-radius-sm);
+}
+
+.pagination__light {
+  --bs-pagination-color: #6c757d;
+  --bs-pagination-hover-color: #495057;
+  --bs-pagination-focus-color: #495057;
+  --bs-pagination-active-bg: #6c757d;
+  --bs-pagination-active-border-color: #6c757d;
+}
+
+// .pagination-dark {
+//   --bs-pagination-color: #212529;  
+//   --bs-pagination-hover-color: #000;
+//   --bs-pagination-active-bg: #212529;
+//   --bs-pagination-active-border-color: #212529;
+// }
+
+@media (min-width: 493px) {
+  .item__image {
+    height: 320px;
+  }
+
+  .pagination__responsive {
+    --bs-pagination-padding-x: 0.75rem;
+    --bs-pagination-padding-y: 0.375rem;
+    --bs-pagination-font-size: 1rem;
+    --bs-pagination-border-radius: var(--bs-border-radius);
+  }
 }
