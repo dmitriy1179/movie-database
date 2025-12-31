@@ -1,10 +1,12 @@
 import React from "react";
 import { useParams } from "react-router";
 import useFetch from "../hooks/use-fetch";
+import useTheme from "../context/ThemeContext";
 import StatusResolver from "../components/StatusResolver";
 import glyphicons from "../assets/images/glyphicons.svg";
 
 const Person = () => {
+  const { isDarkTheme } = useTheme();
   const { id } = useParams();
   const [person, status] = useFetch(`https://api.themoviedb.org/3/person/${id}?language=en-US`);
 
@@ -13,6 +15,7 @@ const Person = () => {
 
   const bioRef = React.useRef(null);
 
+  const hasPoster = person?.profile_path !== null;
   const birthday = person?.birthday ? person.birthday.split("-").reverse().join("/") : null;
   const deathday = person?.deathday ? person.deathday.split("-").reverse().join("/") : null;
 
@@ -28,13 +31,16 @@ const Person = () => {
         {person && (
           <>
             <div className="container h-100 d-flex justify-content-center align-items-center">
-              <div className="row g-0 pt-4 mb-4">
-                <div className={`col-md-4 d-flex justify-content-center ${person.profile_path === null ? "bg-secondary-subtle" : ""}`}>
+              <div className="row g-0 pt-4 mb-4 w-100">
+                <div className={`col-md-4 d-flex justify-content-center ${hasPoster ? "" : "rounded-3 bg-secondary-subtle"}`}>
                   <img
-                    src={person.profile_path === null ? glyphicons : `https://image.tmdb.org/t/p/w500${person.profile_path}`}
+                    src={hasPoster ? `https://image.tmdb.org/t/p/w500${person.profile_path}` : glyphicons}
                     alt={person.name}
-                    className={`img-fluid hero__img ${person.profile_path === null ? "p-5" : ""}`}
-                    style={{ height: `${person.profile_path ? "auto" : "500px"}` }}
+                    className={`rounded-3 w-100 object-fit-contain mb-auto img-fluid ${hasPoster ? "" : "p-5"}`}
+                    style={{
+                      minHeight: `${hasPoster ? "auto" : "500px"}`,
+                      maxHeight: "calc(100vh - 104px)"
+                    }}
                   />
                 </div>
                 <div className="col-md-8 pt-4 pt-md-0 px-2 px-md-0 ps-md-3">
@@ -58,7 +64,7 @@ const Person = () => {
                   {showReadMore && (
                     <div className="d-flex justify-content-end mt-1">
                       <button
-                        className="btn btn-link p-0 text-decoration-none fw-bold text-black"
+                        className={`btn btn-link p-0 text-decoration-none fw-bold ${isDarkTheme ? "text-white-50" : "text-black"}`}
                         onClick={() => setIsExpanded(!isExpanded)}
                       >
                         {isExpanded ? "collapse" : "read more"}

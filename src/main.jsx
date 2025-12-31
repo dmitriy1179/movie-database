@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
+import { ThemeProvider } from "./context/ThemeContext.jsx"
 import App from './App.jsx'
 import Movies from './pages/Movies.jsx';
 import NotFound from './pages/NotFound.jsx';
@@ -11,7 +12,7 @@ import Person from './pages/Person.jsx';
 import Tv from './pages/Tv.jsx';
 import Show from './pages/show.jsx';
 import "./assets/css/style.scss";
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </StrictMode>,
 )

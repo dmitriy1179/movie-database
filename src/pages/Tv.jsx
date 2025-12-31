@@ -82,7 +82,7 @@ const Tv = () => {
             </ul>
             <PaginationButtons
               currentPage={currentPage}
-              totalPages={tv.total_pages}
+              totalPages={tv.total_pages > 500 ? 500 : tv.total_pages}
               getPrevPage={() => updatePage(currentPage - 1)}
               getNextPage={() => updatePage(currentPage + 1)}
               getPage={(e) => updatePage(+e.target.value)}

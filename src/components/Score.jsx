@@ -1,7 +1,11 @@
+import useTheme from "../context/ThemeContext";
+
 const Score = ({ details, isHiddenTitle = false, classScore = "", isHidden = false }) => {
+  const { isDarkTheme } = useTheme();
   const score = Math.round(details?.vote_average * 10);
   let barColor = "#21d07a";
   let trackColor = "#204529";
+
   if (score < 40) {
     barColor = "#db2360";
     trackColor = "#571435";
@@ -9,6 +13,7 @@ const Score = ({ details, isHiddenTitle = false, classScore = "", isHidden = fal
     barColor = "#d2d531";
     trackColor = "#423d0f";
   }
+
   return (
     <>
       <div hidden={isHidden}>
@@ -33,7 +38,7 @@ const Score = ({ details, isHiddenTitle = false, classScore = "", isHidden = fal
                 style={{
                   width: "52px",
                   height: "52px",
-                  background: "#b5b5b5",
+                  background: isDarkTheme ? "#212529" : "#b5b5b5" ,
                   fontWeight: "bold",
                   fontSize: "1rem",
                 }}

@@ -72,7 +72,7 @@ const People = () => {
             </ul>
             <PaginationButtons
               currentPage={currentPage}
-              totalPages={people.total_pages}
+              totalPages={people.total_pages > 500 ? 500 : people.total_pages}
               getPrevPage={() => updatePage(currentPage - 1)}
               getNextPage={() => updatePage(currentPage + 1)}
               getPage={(e) => updatePage(+e.target.value)}

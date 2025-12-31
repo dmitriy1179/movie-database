@@ -1,17 +1,18 @@
 import { Outlet } from 'react-router';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import useTheme from './context/ThemeContext';
 
 function App() {
+  const { isDarkTheme } = useTheme();
+
   return (
     <>
-      {/* <div className='h-100' data-bs-theme="dark"> */}
       <Header />
-      <div className='wrapper d-flex flex-column gradient'>
+      <div className={`wrapper d-flex flex-column ${isDarkTheme ? "" : "gradient"}`}>
         <Outlet />
       </div>
       <Footer />
-      {/* </div> */}
     </>
   )
 }

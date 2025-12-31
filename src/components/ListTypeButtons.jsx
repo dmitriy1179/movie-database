@@ -1,5 +1,9 @@
+import useTheme from "../context/ThemeContext"
+
 const ListTypeButtons = ({ title, changeHandler, type, query, isHidden }) => {
-  const isPopular = type === "popular" || (!type && !query)
+  const { isDarkTheme } = useTheme();
+  const isPopular = type === "popular" || (!type && !query);
+
   return (
     <>
       <div hidden={isHidden}>
@@ -11,7 +15,7 @@ const ListTypeButtons = ({ title, changeHandler, type, query, isHidden }) => {
                 width: "90px",
                 cursor: isPopular ? "auto" : "pointer",
                 zIndex: isPopular ? "1" : "unset",
-                color: isPopular ? "#FFFFFF" : "unset"
+                color: isPopular ? (isDarkTheme ? "#000000" : "#FFFFFF") : "unset"
               }}>Popular
               <input type="radio" name="type" onChange={changeHandler} value="popular" hidden checked={isPopular} />
             </label>
@@ -20,7 +24,7 @@ const ListTypeButtons = ({ title, changeHandler, type, query, isHidden }) => {
                 width: "90px",
                 cursor: isPopular ? "pointer" : "auto",
                 zIndex: isPopular ? "unset" : "1",
-                color: isPopular ? "unset" : "#FFFFFF"
+                color: isPopular ? "unset" : (isDarkTheme ? "#000000" : "#FFFFFF")
               }}> Top rated
               <input type="radio" name="type" onChange={changeHandler} value="top_rated" hidden checked={type === "top_rated"} />
             </label>

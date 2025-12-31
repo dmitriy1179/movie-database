@@ -52,7 +52,7 @@ const Movies = () => {
 
   return (
     <>
-      <div className="hero hero--mod" style={{ backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.6), rgba(224, 224, 224, 0.6)), url(${heromovies})` }}>
+      <div className="hero hero--mod" style={{ backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(224, 224, 224, 0.3)), url(${heromovies})` }}>
         <div className="container h-100 d-flex justify-content-center align-items-center">
           <div className="w-100">
             <SearchForm
@@ -85,7 +85,7 @@ const Movies = () => {
               </ul>
               <PaginationButtons
                 currentPage={currentPage}
-                totalPages={movie.total_pages}
+                totalPages={movie.total_pages > 500 ? 500 : movie.total_pages}
                 getPrevPage={() => updatePage(currentPage - 1)}
                 getNextPage={() => updatePage(currentPage + 1)}
                 getPage={(e) => updatePage(+e.target.value)}
