@@ -22,7 +22,7 @@ const Movie = () => {
       <StatusResolver status={status}>
         {details && (
           <>
-            <div className="hero" style={{ backgroundImage: `linear-gradient(to right, ${isDarkTheme ? "rgba(40, 40, 40, 0.7), rgba(30, 30, 30, 0.7)" : "rgba(255, 255, 255, 0.6), rgba(224, 224, 224, 0.6)"}), url(https://image.tmdb.org/t/p/w500${details.backdrop_path})` }}>
+            <div className="hero" style={{ backgroundImage: `linear-gradient(to right, ${isDarkTheme ? "rgba(40, 40, 40, 0.7), rgba(30, 30, 30, 0.7)" : "rgba(255, 255, 255, 0.7), rgba(224, 224, 224, 0.7)"}), url(https://image.tmdb.org/t/p/w500${details.backdrop_path})` }}>
               <div className="container h-100 d-flex justify-content-center align-items-center">
                 <div className="row g-0 pt-4 mb-4 w-100">
                   <div className={`col-md-4 d-flex justify-content-center ${hasPoster ? "" : "rouhded-3 bg-secondary-subtle"}`}>
