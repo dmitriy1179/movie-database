@@ -68,7 +68,7 @@ const Movies = () => {
           changeHandler={changeType}
           type={type}
           query={query}
-          isHidden={query}
+          isHidden={query || status === "rejected"}
         />
         {query ? <h3 className="mb-3 mt-4 text-center">Movie search result </h3> : null}
         <StatusResolver

@@ -62,7 +62,7 @@ const Tv = () => {
         changeHandler={changeType}
         type={type}
         query={query}
-        isHidden={query}
+        isHidden={query || status === "rejected"}
       />
       {query ? <h3 className="mb-3 mt-4 text-center">TV show search result</h3> : null}
       <StatusResolver
