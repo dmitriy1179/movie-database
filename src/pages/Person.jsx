@@ -30,13 +30,15 @@ const Person = () => {
       <StatusResolver status={status}>
         {person && (
           <>
+            {/* <div className="container h-100 d-flex justify-content-center mt-md-4"> */}
+            {/* <div className={`container h-100 d-flex justify-content-center ${showReadMore ? "mt-md-5" : "align-items-center"}`}> */}
             <div className="container h-100 d-flex justify-content-center align-items-center">
               <div className="row g-0 pt-4 mb-4 w-100">
                 <div className={`col-md-4 d-flex justify-content-center ${hasPoster ? "" : "rounded-3 bg-secondary-subtle"}`}>
                   <img
                     src={hasPoster ? `https://image.tmdb.org/t/p/w500${person.profile_path}` : glyphicons}
                     alt={person.name}
-                    className={`rounded-3 w-100 object-fit-contain mb-auto img-fluid ${hasPoster ? "" : "p-5"}`}
+                    className={`sw-100 object-fit-contain mb-auto img-fluid ${hasPoster ? "" : "p-5"}`}
                     style={{
                       minHeight: `${hasPoster ? "auto" : "500px"}`,
                       maxHeight: "calc(100vh - 104px)"

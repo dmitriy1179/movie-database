@@ -51,7 +51,7 @@ const Movie = () => {
                     {details.homepage && (
                       <div className="d-flex align-items-baseline">
                         <p className="fw-bolder">Homepage:</p>
-                        <a href={details.homepage} target="_blank" className="ms-2 text-decoration-none" rel="noopener noreferrer">{details.homepage}</a>
+                        <a href={details.homepage} target="_blank" className="ms-2 text-decoration-none text-break" rel="noopener noreferrer">{details.homepage}</a>
                       </div>
                     )}
                   </div>
