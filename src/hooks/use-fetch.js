@@ -20,7 +20,6 @@ const useFetch = (url) => {
         throw new Error()
       }
       const fetchData = await jsonData.json()
-      console.log("fethData", fetchData)
       setData(fetchData)
       setStatus("resolved");
     } catch (e) {
