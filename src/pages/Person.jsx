@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import useFetch from "../hooks/use-fetch";
 import useTheme from "../context/ThemeContext";
 import StatusResolver from "../components/StatusResolver";
-import { ImdbIcon } from "../assets/images/imdbIcon";
+import { ImdbIcon } from "../assets/images/ImdbIcon";
 import glyphicons from "../assets/images/glyphicons.svg";
 
 const Person = () => {

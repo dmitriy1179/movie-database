@@ -4,7 +4,7 @@ import useFetch from "../hooks/use-fetch";
 import useTheme from "../context/ThemeContext";
 import StatusResolver from "../components/StatusResolver";
 import glyphicons from "../assets/images/glyphicons.svg";
-import { ImdbIcon } from "../assets/images/imdbIcon";
+import { ImdbIcon } from "../assets/images/ImdbIcon";
 import Score from "../components/Score";
 
 const Movie = () => {
