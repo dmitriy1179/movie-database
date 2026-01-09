@@ -17,7 +17,7 @@ const Score = ({ details, isHiddenTitle = false, classScore = "", isHidden = fal
   return (
     <>
       <div hidden={isHidden}>
-        <div className={`d-flex align-items-center mb-2 ${classScore}`}>
+        <div className={`d-flex align-items-center mb-3 ${classScore}`}>
           <div className="d-flex align-items-center justify-content-center rounded-circle"
             style={{
               width: "64px",

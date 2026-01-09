@@ -28,7 +28,7 @@ body {
 }
 
 .gradient-dark {
-    background: linear-gradient(to right,  rgba(40, 40, 40), rgba(30, 30, 30));
+  background: linear-gradient(to right, rgba(40, 40, 40), rgba(30, 30, 30));
 }
 
 .placeholder-error::placeholder {
@@ -53,7 +53,7 @@ body {
 .custom-theme-switch:checked {
   background-color: #495057 !important;
   border-color: #adb5bd !important;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e") !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e") !important;
 }
 
 .custom-theme-switch:focus {
@@ -66,9 +66,8 @@ body {
 }
 
 .offcanvas-header .btn-close--mod {
-margin-left: unset;
+  margin-left: unset;
 }
-
 
 .list {
   display: grid;

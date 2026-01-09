@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import useFetch from "../hooks/use-fetch";
 import useTheme from "../context/ThemeContext";
 import StatusResolver from "../components/StatusResolver";
+import { ImdbIcon } from "../assets/images/imdbIcon";
 import glyphicons from "../assets/images/glyphicons.svg";
 
 const Person = () => {
@@ -46,10 +47,16 @@ const Person = () => {
                   />
                 </div>
                 <div className="col-md-8 pt-4 pt-md-0 px-2 px-md-0 ps-md-3">
-                  <h2 className="mb-3">
-                    {person.name}
-                    {birthday ? <span className="text-muted ms-2 fs-5">({birthday}{deathday ? ` - ${deathday}` : null})</span> : ""}
-                  </h2>
+                  <div className="d-flex">
+                    <h2 className="mb-3">
+                      {person.name}
+                      {birthday ? <span className="text-muted ms-2 fs-5">({birthday}{deathday ? ` - ${deathday}` : null})</span> : ""}
+                    </h2>
+                    <a href={`https://www.imdb.com/find/?s=nm&q=${person.name}`} target="_blank" className="ms-3 mb-3 d-flex align-self-end" rel="noopener noreferrer" style={{ color: `${isDarkTheme ? "#343A40" : "#212529"}` }}>
+                      <ImdbIcon />
+                    </a>
+                  </div>
+
                   <h4>Place of birth</h4>
                   <p>{person.place_of_birth ? person.place_of_birth : `There is no information about ${person.name} place of birth`}
                   </p>
@@ -79,7 +86,7 @@ const Person = () => {
             </div>
           </>
         )}
-      </StatusResolver>
+      </StatusResolver >
     </>
   )
 }

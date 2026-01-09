@@ -4,6 +4,7 @@ import useFetch from "../hooks/use-fetch";
 import useTheme from "../context/ThemeContext";
 import StatusResolver from "../components/StatusResolver";
 import glyphicons from "../assets/images/glyphicons.svg";
+import { ImdbIcon } from "../assets/images/imdbIcon";
 import Score from "../components/Score";
 
 const Show = () => {
@@ -37,8 +38,14 @@ const Show = () => {
                     />
                   </div>
                   <div className="col-md-8 pt-4 pt-md-0 px-2 px-md-0 ps-md-3">
-                    <h2 className="mb-0"> {show.name} {show.first_air_date ? <span className="text-muted">({show.first_air_date.slice(0, 4)})</span> : ""}</h2>
-                    <p className="">
+                    <div className="d-flex mb-1">
+                      <h2 className="mb-0"> {show.name} {show.first_air_date ? <span className="text-muted">({show.first_air_date.slice(0, 4)})</span> : ""}
+                      </h2>
+                      <a href={`https://www.imdb.com/find/?s=tt&q=${show.name}`} target="_blank" className="ms-3 d-flex align-self-end" rel="noopener noreferrer" style={{ color: `${isDarkTheme ? "#343A40" : "#212529"}` }}>
+                        <ImdbIcon />
+                      </a>
+                    </div>
+                    <p>
                       {facts.map((item, index) => (
                         <React.Fragment key={index}>
                           <small>{item}</small>
