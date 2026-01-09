@@ -17,7 +17,7 @@ const Header = () => {
     <header>
       <nav className="navbar bg-body-secondary navbar-expand-lg fixed-top px-1 px-md-3 px-lg-5">
         <div className="container-fluid">
-          <NavLink to="/" className="navbar-brand">Search on TMBD</NavLink>
+          <NavLink to="/" className="navbar-brand">Search on TMDB</NavLink>
           <button
             className="navbar-toggler"
             style={{ boxShadow: "unset" }}
@@ -36,7 +36,7 @@ const Header = () => {
             aria-labelledby="offcanvasNavbarLabel"
           >
             <div className="offcanvas-header gap-2">
-              <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Search on TMBD</h5>
+              <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Search on TMDB</h5>
 
               <div className="form-check form-switch ms-auto mb-0">
                 <input
