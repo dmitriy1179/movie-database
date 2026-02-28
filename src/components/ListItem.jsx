@@ -2,16 +2,16 @@ import { NavLink } from "react-router";
 import glyphicons from "../assets/images/glyphicons.svg";
 import Score from "./Score";
 
-const ListItem = ({ item, poster = "poster_path", title = "title", date = "release_date", path = "movies", isHiddenScore = false }) => {
+const ListItem = ({ item, poster = "poster_path", title = "title", date = "release_date", path = "movies", isHiddenScore = false, className="", imageClassName=""}) => {
   const hasPoster = item[poster] !== null;
   const releaseDate = item?.[date] ? item[date].split("-").reverse().join("/") : null;
   const movieList = item?.known_for && item.known_for.length > 0 ? item.known_for.map((movie) => movie.name ?? movie.title).join(", ") : null;
 
   return (
-    <li className="card item">
+    <li className={`card ${className}`}>
       <img
         src={hasPoster ? `https://image.tmdb.org/t/p/w500${item[poster]}` : glyphicons}
-        className={`card-img-top bg-secondary-subtle border item__image ${hasPoster ? "" : "p-5"}`}
+        className={`card-img-top bg-secondary-subtle border item__image ${hasPoster ? "" : "p-5"} ${imageClassName}`}
         alt={item[title]}
         style={{ objectFit: hasPoster ? "cover" : "contain" }}
       />

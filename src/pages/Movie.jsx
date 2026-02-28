@@ -41,9 +41,11 @@ const Movie = () => {
                       <h2 className="mb-0"> {details.title}
                         {details.release_date ? <span className="ms-1 text-muted">({details.release_date.slice(0, 4)})</span> : ""}
                       </h2>
-                      <a href={`https://www.imdb.com/find/?s=tt&q=${details.title}`} target="_blank" className="ms-3 d-flex align-self-end" rel="noopener noreferrer" style={{ color: `${isDarkTheme ? "#343A40" : "#212529"}` }}>
-                        <ImdbIcon />
-                      </a>
+                      {details.imdb_id &&
+                        <a href={`https://www.imdb.com/title/${details.imdb_id}`} target="_blank" className="ms-3 d-flex align-self-end" rel="noopener noreferrer" style={{ color: `${isDarkTheme ? "#343A40" : "#212529"}` }}>
+                          <ImdbIcon />
+                        </a>
+                      }
                     </div>
                     <p>
                       {facts.map((item, index) => (
