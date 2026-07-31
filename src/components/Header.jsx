@@ -7,6 +7,21 @@ const Header = () => {
 
   const { isDarkTheme, toggleTheme } = useTheme();
 
+  const navLinks = [
+    {
+      to: "/movies",
+      title: "Movies"
+    },
+    {
+      to: "/people",
+      title: "People"
+    },
+    {
+      to: "/tv",
+      title: "TV"
+    }
+  ]
+
   const closeMenu = () => {
     if (closeBtnRef.current) {
       closeBtnRef.current.click();
@@ -64,34 +79,18 @@ const Header = () => {
 
             <div className="offcanvas-body gap-5">
               <ul className="navbar-nav justify-content-end flex-grow-1">
-                <li className="nav-item">
-                  <NavLink
-                    to="/"
-                    className="nav-link"
-                    aria-current="page"
-                    onClick={closeMenu}
-                  >
-                    Movies
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink
-                    to="/people"
-                    className="nav-link"
-                    onClick={closeMenu}
-                  >
-                    People
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink
-                    to="/tv"
-                    className="nav-link"
-                    onClick={closeMenu}
-                  >
-                    TV
-                  </NavLink>
-                </li>
+                {navLinks.map((link, index) =>
+                  <li className="nav-item" key={index}>
+                    <NavLink
+                      to={link.to}
+                      className="nav-link"
+                      aria-current={index === 0 ? "page" : undefined}
+                      onClick={closeMenu}
+                    >
+                      {link.title}
+                    </NavLink>
+                  </li>
+                )}
               </ul>
 
               <div className="form-check form-switch align-self-center d-none d-lg-block">

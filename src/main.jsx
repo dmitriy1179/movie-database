@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import { ThemeProvider } from "./context/ThemeContext.jsx"
 import App from './App.jsx'
@@ -21,6 +21,10 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <Navigate to="/movies" replace />
+      },
+      {
+        path: "/movies",
         element: <Movies />
       },
       {
